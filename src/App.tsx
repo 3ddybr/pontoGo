@@ -9,25 +9,19 @@ import logoGoStudyImg from "./assets/logoGoStudy.svg";
 
 import { Header } from "./components/Header";
 import { Plans } from "./components/Plans";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <Flex
-      align="top"
       justifyContent="center"
       bgImage={bg}
       bgRepeat="no-repeat"
-      bgSize="100%"
+      bgSize="cover"
       w="100%"
       h="100%"
     >
-      <Stack
-        w="100vw"
-        maxW="75rem"
-        display="flex"
-        align="center"
-        // border="1px solid red"
-      >
+      <Stack w="100vw" maxW="75rem" display="flex" align="center">
         <NavBar />
         <Header />
         <Flex
@@ -44,6 +38,7 @@ function App() {
           <Image src={logoGoStudyImg} />
         </Flex>
         <Plans />
+        <Footer />
       </Stack>
     </Flex>
   );

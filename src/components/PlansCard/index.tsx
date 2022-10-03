@@ -1,20 +1,38 @@
 import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { Flex, Stack, Text, chakra, Button } from "@chakra-ui/react";
 
-export function PlansCard() {
+interface PlansCardProps {
+  id: string;
+  title: string;
+  value: number;
+  counter_user: string;
+  benefits: Benefit[];
+}
+
+interface Benefit {
+  title: string;
+  active?: boolean;
+}
+
+export function PlansCard({
+  id,
+  title,
+  value,
+  counter_user,
+  benefits,
+}: PlansCardProps) {
   return (
     <Flex
       w="100%"
       maxW="20.81rem"
-      h="100vh"
-      maxH="30.69rem"
+      h="30.69rem"
       direction="column"
       bgColor="rgba(255, 255, 255, 0.08)"
+      backdropFilter="blur(2.5px)"
       alignItems="center"
       color="white"
-      paddingTop="2.5rem"
-      border="1px solid secondaryColor"
-      backdropFilter="blur(2.5px)"
+      paddingY="2.5rem"
+      border="1px solid #8A53FF"
       borderRadius="10px"
     >
       <Stack textAlign="center">
@@ -24,16 +42,16 @@ export function PlansCard() {
           fontSize="1.25rem"
           lineHeight="30px"
         >
-          Plano Prata
+          {title}
         </Text>
         <Text
           fontStyle="normal"
           fontWeight="800"
           fontSize="3.125rem"
           lineHeight="75px"
-          margin={0}
+          margin="0 !important"
         >
-          R$ 50
+          R$ {value}
         </Text>
         <Text
           fontStyle="normal"
@@ -41,33 +59,31 @@ export function PlansCard() {
           fontSize="1rem"
           lineHeight="24px"
           color="secondaryColor"
+          margin="0 !important"
         >
-          Uso de 10 colaboradores
+          {counter_user}
         </Text>
       </Stack>
+
       <Stack
         fontStyle="normal"
         fontWeight="300"
         fontSize="1rem"
         lineHeight="24px"
-        marginTop="1.25rem"
+        paddingTop="1.25rem"
         gap="1rem"
       >
-        <chakra.p>
-          <CheckIcon /> Área de meus registros
-        </chakra.p>
-        <chakra.p>
-          <CheckIcon /> Dashboard
-        </chakra.p>
-        <chakra.p>
-          <CheckIcon /> Acesso de 10 colaboradores
-        </chakra.p>
-        <chakra.p>
-          <CloseIcon /> Suporte exclusivo
-        </chakra.p>
-        <chakra.p>
-          <CloseIcon /> Email corporativo
-        </chakra.p>
+        {benefits.map((benefit) => {
+          return benefit.active ? (
+            <chakra.p key={benefit.title} margin="0 !important">
+              <CheckIcon /> {benefit.title}
+            </chakra.p>
+          ) : (
+            <chakra.p key={benefit.title} margin="0 !important" opacity="0.3">
+              <CloseIcon /> {benefit.title}
+            </chakra.p>
+          );
+        })}
       </Stack>
       <Button
         w="10rem"
@@ -78,6 +94,7 @@ export function PlansCard() {
         fontSize="md"
         fontWeight="400"
         lineHeight="24px"
+        marginTop="30px"
       >
         Assinar agora
       </Button>

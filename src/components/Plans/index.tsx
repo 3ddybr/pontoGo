@@ -1,12 +1,14 @@
 import { Flex, Stack, Text } from "@chakra-ui/react";
 import { PlansCard } from "../PlansCard";
 
+import { dataPlains } from "../../utils/dataPlains";
+
 export function Plans() {
   return (
     <Flex
+      w="100%"
       alignItems="center"
       justifyContent="center"
-      maxW="40rem"
       direction="column"
       marginTop="5.63rem !important"
       // border="1px solid red"
@@ -16,6 +18,7 @@ export function Plans() {
         display="flex"
         alignItems="center"
         justifyContent="center"
+        maxW="40rem"
       >
         <Text
           fontStyle="normal"
@@ -38,7 +41,26 @@ export function Plans() {
           assinatura, dentro de 72h iremos liberar seus acessos.
         </Text>
       </Stack>
-      <PlansCard />
+      <Stack
+        display="flex"
+        alignItems="center"
+        justify="center"
+        w="100%"
+        direction="row"
+      >
+        {dataPlains.map((plan) => {
+          return (
+            <PlansCard
+              key={plan.id}
+              id={plan.id}
+              title={plan.title}
+              value={plan.value}
+              counter_user={plan.counter_user}
+              benefits={plan.benefits}
+            />
+          );
+        })}
+      </Stack>
     </Flex>
   );
 }
