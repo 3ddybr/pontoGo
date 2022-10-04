@@ -1,8 +1,11 @@
-import { Flex, Image, chakra, Text, Button, Link } from "@chakra-ui/react";
+import { Image, chakra, Button, Link } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logoWhite.svg";
 
 export function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <chakra.header
       w="100%"
@@ -54,6 +57,7 @@ export function NavBar() {
           fontWeight="400"
           fontSize="16px"
           color="secondaryColor"
+          onClick={() => navigate("/login")}
         >
           Fazer Login
         </Button>

@@ -1,14 +1,6 @@
-import {
-  Button,
-  Image,
-  Stack,
-  Text,
-  chakra,
-  Grid,
-  Flex,
-} from "@chakra-ui/react";
+import { Button, Image, Stack, Text, chakra, Flex } from "@chakra-ui/react";
 
-import bannerImg from "../../assets/bannerImg.svg";
+import bannerImg from "../../assets/bannerImg.png";
 
 export function Header() {
   return (
@@ -19,6 +11,7 @@ export function Header() {
       w="100vw"
       maxW="1200"
       overflow="hidden"
+      // gap="4"
     >
       <Stack w="100vw" minW="32.5rem" h="100%" maxH="343px">
         <Text
@@ -92,12 +85,7 @@ export function Header() {
           </Button>
         </Flex>
       </Stack>
-      <Image
-        maxW="43.93rem"
-        h="31.68rem"
-        src={bannerImg}
-        // border="1px solid white"
-      />
+      <Image maxW="43.93rem" h="31.68rem" src={bannerImg} />
     </Flex>
   );
 }

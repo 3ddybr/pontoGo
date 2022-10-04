@@ -34,6 +34,7 @@ export function PlansCard({
       paddingY="2.5rem"
       border="1px solid #8A53FF"
       borderRadius="10px"
+      margin="0 !important"
     >
       <Stack textAlign="center">
         <Text

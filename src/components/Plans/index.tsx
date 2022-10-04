@@ -2,6 +2,8 @@ import { Flex, Stack, Text } from "@chakra-ui/react";
 import { PlansCard } from "../PlansCard";
 
 import { dataPlains } from "../../utils/dataPlains";
+import PlansCarousel from "../PlansCarousel";
+import PlansCarousel2 from "../PlansCarousel2";
 
 export function Plans() {
   return (
@@ -11,6 +13,7 @@ export function Plans() {
       justifyContent="center"
       direction="column"
       marginTop="5.63rem !important"
+      overflow="hidden"
       // border="1px solid red"
     >
       <Stack
@@ -18,6 +21,7 @@ export function Plans() {
         display="flex"
         alignItems="center"
         justifyContent="center"
+        w="100%"
         maxW="40rem"
       >
         <Text
@@ -45,8 +49,10 @@ export function Plans() {
         display="flex"
         alignItems="center"
         justify="center"
-        w="100%"
+        w="100vw"
         direction="row"
+        gap="4"
+        // border="1px solid red"
       >
         {dataPlains.map((plan) => {
           return (
@@ -61,6 +67,19 @@ export function Plans() {
           );
         })}
       </Stack>
+
+      {/* <Stack
+        display="flex"
+        alignItems="center"
+        justify="center"
+        w="100%"
+        direction="row"
+        border="1px solid red"
+      > */}
+      {/* <PlansCarousel /> */}
+
+      {/* <PlansCarousel2 /> */}
+      {/* </Stack> */}
     </Flex>
   );
 }
