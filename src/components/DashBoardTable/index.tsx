@@ -43,7 +43,7 @@ export function DashBoardTable() {
     >
       <Thead>
         <Tr>
-          {ths.map((th) => (
+          {ths.map((th, index) => (
             <Th
               fontFamily="Poppins"
               fontStyle="normal"
@@ -53,6 +53,7 @@ export function DashBoardTable() {
               letterSpacing=".02em"
               color="greyColor"
               paddingLeft="0"
+              key={index}
             >
               {th}
             </Th>
@@ -61,7 +62,7 @@ export function DashBoardTable() {
       </Thead>
       <Tbody>
         {data.map((value) => (
-          <Tr bg="white">
+          <Tr bg="white" key={value.id}>
             <Td paddingLeft="1rem" borderLeftRadius="10px">
               <HStack alignItems="left">
                 <Box w="5px" bg="secondaryColor" borderRadius="30px" />

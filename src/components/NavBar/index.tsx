@@ -48,7 +48,7 @@ export function NavBar() {
           color="white"
           cursor="pointer"
         >
-          Planos{" "}
+          Planos
         </Link>
         <Button
           paddingX="9"
